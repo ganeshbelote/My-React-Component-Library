@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import BasicBtn from '../buttons/BasicBtn'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import type { userType } from '../../types/user.type'
 import LoadingBtn from '../buttons/LoadingBtn'
 
@@ -21,7 +21,6 @@ const RegisterForm = ({
   Navigate?: string
   isLoading?: boolean
 }) => {
-  const navigate = useNavigate()
   const [user, setUser] = useState<userType>({
     username: '',
     email: '',
@@ -164,14 +163,11 @@ const RegisterForm = ({
 
         <p className='text-center text-sm'>
           Already have account ?{' '}
-          <span
-            className='text-blue-500 underline cursor-pointer'
-            onClick={() => {
-              navigate(Navigate!)
-            }}
-          >
-            Login
-          </span>
+          <Link to={Navigate}>
+            <span className='text-blue-500 underline cursor-pointer'>
+              Login
+            </span>
+          </Link>
         </p>
       </form>
     </div>

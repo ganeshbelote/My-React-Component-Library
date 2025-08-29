@@ -143,6 +143,7 @@ function App () {
       <h2>Info tabs</h2>
       <div className='btn-container flex gap-3'>
         <InfoTab
+          Href='/about'
           Border={true}
           Shadow={true}
           Heading='Heading'

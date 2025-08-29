@@ -22,8 +22,8 @@ const AnimatedText = ({
         key={animationKey}
         initial={{ opacity: 1 }}
         animate={{ opacity: Trigger ? 0.4 : 1}}
-        transition={{ duration: 0.5 }}
-        className={`relative z-10 ${Size}`}
+        transition={{ delay : -0.2, duration: 0.5, ease : "easeInOut" }}
+        className={`relative z-10 ${Size} ${Trigger && 'line-through md:no-underline lg:no-underline'}`}
       >
         {Text}
       </motion.span>
@@ -31,9 +31,9 @@ const AnimatedText = ({
       <motion.div
         key={`line-${animationKey}`}
         initial={{ width: 0 }}
-        animate={{ width: Trigger ? '100%' : 0, opacity: Trigger ? 0.4 : 1 }}
-        transition={{ duration: 0.6 }}
-        className='absolute top-1/2 left-0 h-[2px] bg-black z-20'
+        animate={{ width: Trigger ? '100%' : 0 }}
+        transition={{ duration: 0.6, ease : "easeInOut" }}
+        className='absolute top-1/2 left-0 h-[2px] bg-[#7D7D7F] z-20 hidden md:block lg:block'
       />
     </div>
   )
