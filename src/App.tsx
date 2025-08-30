@@ -161,7 +161,7 @@ function App () {
         />
       </div>
       <h2>Input fields</h2>
-      <div className='btn-container flex gap-3'>
+      <div className='btn-container flex flex-wrap gap-3'>
         <BasicInp Corner='pill' placeholder='username' />
         <PasswordInp Corner='rounded' Placeholder={true} placeholder='jgjdsh' />
       </div>
@@ -213,7 +213,7 @@ function App () {
       </div>
       <h2>Accordion</h2>
       <div className='container min-h-screen flex flex-col gap-3'>
-        <Accordion Heading='Ganesh Belote, I am from Devibhoyare' Description='Myself Ganesh Belote, I am from Devibhoyare Taluka Parner District Ahilyanagar.' />
+        <Accordion Heading='Ganesh Belote, I am from Devibhoyare' Description='Myself Ganesh Belote, I am from Devibhoyare Taluka Parner District Ahilyanagar.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci pariatur sapiente quis iste expedita obcaecati est eaque, libero quod delectus aliquam autem repellat illum distinctio id. Iure id optio ad, porro nam eaque? Culpa cumque, rem commodi autem ab porro pariatur! Aperiam ducimus natus, ipsa suscipit sint veniam reprehenderit dolores.' Border={true} Color='white' BackgroundColor='black'/>
       </div>
     </div>
   )
