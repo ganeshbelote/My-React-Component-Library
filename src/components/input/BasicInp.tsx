@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import type { ColorType, cornerType } from '../../types/btn.type'
+import { v4 as uuidv4 } from 'uuid'
 
 const textColors: Record<ColorType, string> = {
   transparent : 'text-black',
@@ -47,7 +48,7 @@ const BasicInp = ({
   }, [Corner])
 
   return (
-    <div className='flex flex-col'>
+    <div key={uuidv4()} className='flex flex-col'>
       {Lable && <label htmlFor={id}>{Lable}</label>}
       <input
         id={id}

@@ -17,6 +17,7 @@ import type { MenuOptionType } from './types/nav.type'
 import Checkbox from './components/checkbox/Checkbox'
 import Breadcrumb from './components/breadcrumb/Breadcrumb'
 import MenuBtn from './components/navbars/MenuBtn'
+import Accordion from './components/accordion/Accordion'
 
 const menuOptions: MenuOptionType[] = [
   {
@@ -192,7 +193,7 @@ function App () {
       <h2>Breadcrumb</h2>
       <div
         id='breadcrum'
-        className='container min-h-screen flex flex-col gap-3'
+        className='container flex flex-col gap-3'
       >
         <Breadcrumb
           Items={[
@@ -202,6 +203,10 @@ function App () {
             { label: 'Laptops', path: '/products/electronics/laptops' }
           ]}
         />
+      </div>
+      <h2>Accordion</h2>
+      <div className='container min-h-screen flex flex-col gap-3'>
+        <Accordion Heading='Ganesh Belote, I am from Devibhoyare' Description='Myself Ganesh Belote, I am from Devibhoyare Taluka Parner District Ahilyanagar.' />
       </div>
     </div>
   )
