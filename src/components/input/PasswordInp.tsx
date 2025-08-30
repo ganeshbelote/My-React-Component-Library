@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import type { ColorType, cornerType } from '../../types/btn.type'
 
 const textColors: Record<ColorType, string> = {
-  transparent : 'text-black',
+  transparent: 'text-black',
   white: 'text-white',
   black: 'text-black',
   pink: 'text-pink-500',
@@ -15,12 +15,13 @@ const textColors: Record<ColorType, string> = {
   purple: 'text-purple-500'
 }
 
-const BasicInp = ({
-  id = 'input',
+const PasswordInp = ({
+  id = 'password-field',
   Border = true,
   Color = 'white',
   Corner,
   Lable,
+  Placeholder,
   className,
   ...rest
 }: {
@@ -28,10 +29,12 @@ const BasicInp = ({
   Border?: boolean
   Color?: ColorType
   Corner?: cornerType
-  Lable?: string
+  Lable?: boolean
+  Placeholder?: boolean
   className?: string
 } & React.InputHTMLAttributes<HTMLInputElement>) => {
   const [cornerStyle, setCorner] = useState<string>('rounded-md')
+  const [showPassword, setShowPassword] = useState<boolean>(false)
 
   useEffect(() => {
     switch (Corner) {
@@ -47,23 +50,31 @@ const BasicInp = ({
   }, [Corner])
 
   return (
-    <div className='flex flex-col'>
-      {Lable && <label htmlFor={id}>{Lable}</label>}
+    <div className='relative flex flex-col'>
+      {Lable && <label htmlFor={id}>Password</label>}
       <input
         id={id}
         name={id}
         {...rest}
         className={clsx(
-          'min-w-3xs outline-0 px-4 py-2.5 text-sm',
+          'min-w-3xs outline-0 px-4 py-2.5 pr-10 text-sm',
           Border && 'border-[1.5px]',
           textColors[Color],
           cornerStyle,
           className
         )}
-        type='text'
+        placeholder= {Placeholder ? 'password' : ''}
+        type={showPassword ? 'text' : 'password'}
+      />
+      <img
+        className='show-pass select-none h-5 w-5 cursor-pointer absolute right-4 top-2.5'
+        src={showPassword ? '/svg/eye-close.svg' : '/svg/eye-open.svg'}
+        alt={showPassword ? 'Hide password' : 'Show password'}
+        draggable={false}
+        onClick={() => setShowPassword(!showPassword)}
       />
     </div>
   )
 }
 
-export default BasicInp
+export default PasswordInp

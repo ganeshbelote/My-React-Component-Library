@@ -33,9 +33,9 @@ const MenuBtn = ({
 
   return (
     <div
+      {...rest}
       className={`flex-shrink-0 ${SizeObject[Size].boxSize} relative rounded-md flex items-center justify-center mr-3 cursor-pointer ${className}`}
       onClick={handleClick}
-      {...rest}
     >
       <motion.div
         className={`${SizeObject[Size].boxSize} absolute inset-0 rounded-md ${

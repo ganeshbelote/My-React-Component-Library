@@ -8,7 +8,7 @@ import type {
 import clsx from 'clsx'
 
 const bgColors: Record<BgColorType, string> = {
-  transparent : 'bg-transparent',
+  transparent: 'bg-transparent',
   white: 'bg-white',
   black: 'bg-black',
   blue: 'bg-blue-500',
@@ -21,7 +21,7 @@ const bgColors: Record<BgColorType, string> = {
 }
 
 const textColors: Record<ColorType, string> = {
-  transparent : 'text-black',
+  transparent: 'text-black',
   white: 'text-white',
   black: 'text-black',
   pink: 'text-pink-500',
@@ -85,10 +85,14 @@ const ColoredBtn = ({
           className
         )}
         style={{
-          boxShadow: Shadow ? `0 1px 8px -4px ${Color}` : '0 1px 8px -4px rgba(0,0,0,0.25)'
+          boxShadow: Shadow
+            ? `0 1px 8px -4px ${Color}`
+            : '0 1px 8px -4px rgba(0,0,0,0.25)'
         }}
         type={Type ? Type : 'button'}
-        onMouseEnter={() =>{ Animated && setHover(true)}}
+        onMouseEnter={() => {
+          Animated && setHover(true)
+        }}
         onMouseLeave={() => setHover(false)}
       >
         {Content}

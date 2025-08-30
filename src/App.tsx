@@ -18,6 +18,7 @@ import Checkbox from './components/checkbox/Checkbox'
 import Breadcrumb from './components/breadcrumb/Breadcrumb'
 import MenuBtn from './components/navbars/MenuBtn'
 import Accordion from './components/accordion/Accordion'
+import PasswordInp from './components/input/PasswordInp'
 
 const menuOptions: MenuOptionType[] = [
   {
@@ -157,6 +158,7 @@ function App () {
       <h2>Input fields</h2>
       <div className='btn-container flex gap-3'>
         <BasicInp Corner='pill' placeholder='username' />
+        <PasswordInp Corner='rounded' Placeholder={true} placeholder='jgjdsh' />
       </div>
       <h2>Auth Forms</h2>
       <div className='form-container flex flex-col gap-3'>

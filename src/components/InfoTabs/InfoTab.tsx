@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { v4 as uuidv4 } from 'uuid'
 
 const InfoTab = ({
   Href = '/',
@@ -20,8 +19,9 @@ const InfoTab = ({
 } & React.HTMLAttributes<HTMLDivElement>) => {
   const [hover, setHover] = useState<boolean>(false)
   return (
-    <Link to={Href} key={uuidv4()}>
+    <Link to={Href}>
       <div
+        {...rest}
         className={`cursor-pointer relative flex-shrink-0 p-4 w-[288px]  rounded-xl active:scale-99 transition-all ${
           hover
             ? 'bg-zinc-900 scale-101'
@@ -31,7 +31,6 @@ const InfoTab = ({
         } ${className}`}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
-        {...rest}
       >
         <h2 className='font-medium'>
           {Heading.split('').length <= 28
