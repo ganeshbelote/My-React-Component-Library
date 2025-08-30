@@ -19,6 +19,7 @@ import Breadcrumb from './components/breadcrumb/Breadcrumb'
 import MenuBtn from './components/navbars/MenuBtn'
 import Accordion from './components/accordion/Accordion'
 import PasswordInp from './components/input/PasswordInp'
+import ExpandableButton from './components/buttons/ExpandableButton'
 
 const menuOptions: MenuOptionType[] = [
   {
@@ -140,7 +141,11 @@ function App () {
           Shadow={true}
           Border={true}
           Content='Click me'
+          Color='blue' 
         />
+        <div onClick={()=>console.log("clicked..")}>
+          <ExpandableButton Color='blue' Border={true} BackgroundColor='black' Shadow={true}/>
+        </div>
       </div>
       <h2>Info tabs</h2>
       <div className='btn-container flex gap-3'>
