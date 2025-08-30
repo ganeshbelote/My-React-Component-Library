@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import AnimatedText from '../text/AnimatedText'
-import { v4 as uuidv4 } from 'uuid'
 
 type sizeType = 'small' | 'medium' | 'large'
 
@@ -31,7 +30,6 @@ const Checkbox = ({
 
   return (
     <div
-    key={uuidv4()}
       className='px-2 py-1.5 cursor-pointer w-fit flex items-center hover:bg-zinc-800 rounded-sm'
       onClick={() => setActive(prev => !prev)}
     >
