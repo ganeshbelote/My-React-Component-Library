@@ -85,7 +85,7 @@ const LoginForm = ({
             id='login-email'
             name='email'
             value={user.email}
-            className='text-sm min-w-3xs border-[1.2px] border-white rounded-md py-1.5 px-4 outline-0'
+            className='text-sm min-w-[220px] max-w-3xs border-[1.2px] border-white rounded-md py-1.5 px-4 outline-0'
             type='text'
             onChange={e => setUser({ ...user, email: e.target.value })}
           />
@@ -106,7 +106,7 @@ const LoginForm = ({
               id='login-password'
               name='password'
               value={user.password}
-              className='text-sm min-w-3xs border-[1.2px] border-white rounded-md py-1.5 px-4 pr-10 outline-0'
+              className='text-sm min-w-[220px] max-w-3xs border-[1.2px] border-white rounded-md py-1.5 px-4 pr-10 outline-0'
               type={showPassword ? 'text' : 'password'}
               onChange={e => setUser({ ...user, password: e.target.value })}
             />

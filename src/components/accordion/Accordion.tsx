@@ -78,8 +78,11 @@ const Accordion = ({
       onMouseLeave={() => setActive(false)}
       onDoubleClick={() => setLock(prev => !prev)}
     >
-      <div className='relative text-lg font-semibold flex items-center justify-center gap-2'>
-        <span>
+      <div className='w-full relative text-lg font-semibold flex items-center justify-center gap-2'>
+        <span
+          className={`w-full text-center`}
+          onClick={() => setActive(prev => !prev)}
+        >
           {Heading.length <= 27
             ? Heading
             : Heading.slice(0, 27).padEnd(30, '.')}
@@ -99,9 +102,18 @@ const Accordion = ({
         className={`absolute ${lock ? 'top-3 right-4.5' : 'top-4 right-5'}`}
       >
         {lock ? (
-          <img className={`h-4`} src={Lock} alt='arrow' onClick={() => setLock(prev => !prev)}/>
-        ) : (
           <img
+            className={`h-4`}
+            src={Lock}
+            alt='arrow'
+            onClick={() => setLock(prev => !prev)}
+          />
+        ) : (
+          <motion.img
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
             className={`h-1.5 ${
               (active || lock) && 'rotate-180'
             } transition-all duration-300`}

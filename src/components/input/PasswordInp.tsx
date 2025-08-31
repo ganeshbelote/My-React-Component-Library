@@ -57,7 +57,7 @@ const PasswordInp = ({
         name={id}
         {...rest}
         className={clsx(
-          'min-w-3xs outline-0 px-4 py-2.5 pr-10 text-sm',
+          'min-w-[220px] max-w-3xs outline-0 px-4 py-2.5 pr-10 text-sm',
           Border && 'border-[1.5px]',
           textColors[Color],
           cornerStyle,
