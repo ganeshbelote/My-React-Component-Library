@@ -43,8 +43,8 @@ const textColors: Partial<Record<ColorType, string>> = {
 }
 
 const Accordion = ({
-  Heading,
-  Description,
+  Heading = 'Heading',
+  Description = 'Description',
   Color = 'white',
   BackgroundColor = 'transparent',
   Shadow,
@@ -103,7 +103,10 @@ const Accordion = ({
         className={`absolute ${lock ? 'top-3 right-4.5' : 'top-4 right-5'}`}
       >
         {lock ? (
-          <img
+          <motion.img
+            initial={{ x: 0 }}
+            animate={{ x: [0, -10, 10, -6, 6, -3, 3, 0] }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
             className={`h-4`}
             src={Lock}
             alt='arrow'
@@ -113,11 +116,10 @@ const Accordion = ({
           <motion.img
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: 'easeInOut' }}
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
             className={`h-1.5 ${
               (active || lock) && 'rotate-180'
-            } transition-all duration-300`}
+            } transition-transform duration-300`}
             src={UpArrow}
             alt='arrow'
             onClick={() => setActive(prev => !prev)}
@@ -133,7 +135,7 @@ const Accordion = ({
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ delay: -0.3 ,duration: 0.8, ease: 'easeInOut' }}
+            transition={{ delay: -0.3, duration: 0.8, ease: 'easeInOut' }}
             className='overflow-hidden w-full pt-2'
           >
             <p className='p-2'>{Description}</p>

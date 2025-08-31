@@ -3,7 +3,7 @@ import type { btnType, cornerType } from '../../types/btn.type'
 import clsx from 'clsx'
 
 const BasicBtn = ({
-  Content,
+  Content = 'Button',
   Type,
   Shadow,
   Border,

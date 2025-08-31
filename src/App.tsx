@@ -20,6 +20,7 @@ import MenuBtn from './components/navbars/MenuBtn'
 import Accordion from './components/accordion/Accordion'
 import PasswordInp from './components/input/PasswordInp'
 import ExpandableButton from './components/buttons/ExpandableButton'
+import Tooltip from './components/tooltip/Tooltip'
 
 const menuOptions: MenuOptionType[] = [
   {
@@ -212,8 +213,12 @@ function App () {
         />
       </div>
       <h2>Accordion</h2>
-      <div className='container min-h-screen flex flex-col gap-3'>
+      <div className='container flex flex-col gap-3'>
         <Accordion Heading='Ganesh Belote, I am from Devibhoyare' Description='Myself Ganesh Belote, I am from Devibhoyare Taluka Parner District Ahilyanagar.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci pariatur sapiente quis iste expedita obcaecati est eaque, libero quod delectus aliquam autem repellat illum distinctio id. Iure id optio ad, porro nam eaque? Culpa cumque, rem commodi autem ab porro pariatur! Aperiam ducimus natus, ipsa suscipit sint veniam reprehenderit dolores.' Border={true} Color='white' BackgroundColor='black'/>
+      </div>
+      <h2>Tooltip</h2>
+      <div className='container min-h-screen flex flex-col gap-3'>
+        <Tooltip Content='Hey Buddy !'/>
       </div>
     </div>
   )

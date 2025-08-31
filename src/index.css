@@ -63,23 +63,67 @@ select:-moz-autofill {
   animation-delay: 0;
 }
 
+/* Hover animation for anyone */
 .hover-effect {
   background-image: linear-gradient(to right, rgb(9 9 11), rgb(24 24 27));
   transform: scale(102%);
 }
 
+/* All input focus animation */
 input:focus {
   box-shadow: 0px 0px 4px #ffffff;
   transition: all 0.3s ease-out;
 }
 
+/* All input hover animation */
 input:hover {
   box-shadow: 0px 0px 4px #ffffff;
   transition: all 0.3s ease-out;
 }
 
+/* NavigationMenu animation */
 @media (width <= 960px) {
-  .option-menu{
+  .option-menu {
     width: 320px !important;
+  }
+}
+
+/* Tooltip animation */
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  .tooltip {
+    z-index: 99;
+    width: auto;
+    padding: 4px 12px;
+    font-weight: 500;
+    pointer-events: none;
+    border-radius: 8px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    border-width: 1px;
+  }
+  .tooltip::after {
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    content: '';
+    position: absolute;
+    background-color: inherit;
+    height: 8px;
+    width: 8px;
+    bottom: -5px;
+    right: 50%;
+    transform: rotate(45deg);
+  }
+}
+.link:hover {
+  .tooltip {
+    opacity: 1;
+    top: -36px;
+    transition: top 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+      opacity 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 }

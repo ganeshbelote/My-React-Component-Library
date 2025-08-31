@@ -37,7 +37,7 @@ const ColoredBtn = ({
   Animated = false,
   Color = 'white',
   BackgroundColor = 'transparent',
-  Content,
+  Content = 'Button',
   Type,
   Shadow,
   Border,

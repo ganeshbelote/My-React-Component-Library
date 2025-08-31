@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 const InfoTab = ({
   Href = '/',
-  Heading,
-  Description,
+  Heading = "Heading",
+  Description = "Description",
   Border,
   Shadow,
   className,
