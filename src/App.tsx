@@ -21,6 +21,8 @@ import Accordion from './components/accordion/Accordion'
 import PasswordInp from './components/input/PasswordInp'
 import ExpandableButton from './components/buttons/ExpandableButton'
 import Tooltip from './components/tooltip/Tooltip'
+import Card from './components/cards/Card'
+import dummyImg from './assets/dummy.jpg'
 
 const menuOptions: MenuOptionType[] = [
   {
@@ -142,10 +144,15 @@ function App () {
           Shadow={true}
           Border={true}
           Content='Click me'
-          Color='blue' 
+          Color='blue'
         />
-        <div onClick={()=>console.log("clicked..")}>
-          <ExpandableButton Color='blue' Border={true} BackgroundColor='black' Shadow={true}/>
+        <div onClick={() => console.log('clicked..')}>
+          <ExpandableButton
+            Color='blue'
+            Border={true}
+            BackgroundColor='black'
+            Shadow={true}
+          />
         </div>
       </div>
       <h2>Info tabs</h2>
@@ -199,10 +206,7 @@ function App () {
         <Checkbox For='Myself Ganesh Digambar Belote I am from Parner District Ahilyanagar' />
       </div>
       <h2>Breadcrumb</h2>
-      <div
-        id='breadcrum'
-        className='container flex flex-col gap-3'
-      >
+      <div id='breadcrum' className='container flex flex-col gap-3'>
         <Breadcrumb
           Items={[
             { label: 'Home', path: '/' },
@@ -214,11 +218,26 @@ function App () {
       </div>
       <h2>Accordion</h2>
       <div className='container flex flex-col gap-3'>
-        <Accordion Heading='Ganesh Belote, I am from Devibhoyare' Description='Myself Ganesh Belote, I am from Devibhoyare Taluka Parner District Ahilyanagar.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci pariatur sapiente quis iste expedita obcaecati est eaque, libero quod delectus aliquam autem repellat illum distinctio id. Iure id optio ad, porro nam eaque? Culpa cumque, rem commodi autem ab porro pariatur! Aperiam ducimus natus, ipsa suscipit sint veniam reprehenderit dolores.' Border={true} Color='white' BackgroundColor='black'/>
+        <Accordion
+          Heading='Ganesh Belote, I am from Devibhoyare'
+          Description='Myself Ganesh Belote, I am from Devibhoyare Taluka Parner District Ahilyanagar.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci pariatur sapiente quis iste expedita obcaecati est eaque, libero quod delectus aliquam autem repellat illum distinctio id. Iure id optio ad, porro nam eaque? Culpa cumque, rem commodi autem ab porro pariatur! Aperiam ducimus natus, ipsa suscipit sint veniam reprehenderit dolores.'
+          Border={true}
+          Color='white'
+          BackgroundColor='black'
+        />
       </div>
       <h2>Tooltip</h2>
+      <div className='container flex flex-col gap-3'>
+        <Tooltip Content='Hey Buddy !' />
+      </div>
+      <h2>Card</h2>
       <div className='container min-h-screen flex flex-col gap-3'>
-        <Tooltip Content='Hey Buddy !'/>
+        <Card
+          Src={dummyImg}
+          Heading='Ganesh Belote'
+          Description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis dolores, voluptatibus reiciendis aut ex provident exercitationem distinctio. Laboriosam architecto expedita natus fugiat molestias inventore omnis beatae ipsum, tempore quam vero reiciendis excepturi sapiente eum sint ea similique dolorem odio dolorum.'
+          Date={String(Date.now())}
+        />
       </div>
     </div>
   )
