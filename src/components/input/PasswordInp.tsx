@@ -50,7 +50,7 @@ const PasswordInp = ({
   }, [Corner])
 
   return (
-    <div className='relative flex flex-col'>
+    <div className='relative flex flex-col justify-center'>
       {Lable && <label htmlFor={id}>Password</label>}
       <input
         id={id}
@@ -67,7 +67,7 @@ const PasswordInp = ({
         type={showPassword ? 'text' : 'password'}
       />
       <img
-        className='show-pass select-none h-5 w-5 cursor-pointer absolute right-4 top-2.5'
+        className='show-pass select-none h-5 w-5 cursor-pointer absolute right-4'
         src={showPassword ? '/svg/eye-close.svg' : '/svg/eye-open.svg'}
         alt={showPassword ? 'Hide password' : 'Show password'}
         draggable={false}

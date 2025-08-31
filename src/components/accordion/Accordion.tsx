@@ -87,12 +87,13 @@ const Accordion = ({
             ? Heading
             : Heading.slice(0, 27).padEnd(30, '.')}
         </span>
-        <AnimatePresence>
+        <AnimatePresence mode='wait'>
           {(active || lock) && (
             <motion.span
               initial={{ width: 0, opacity: 0 }}
               animate={{ width: '90%', opacity: 1 }}
               exit={{ width: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
               className={`absolute -bottom-2 h-[1px] ${bgColors[Color]}`}
             ></motion.span>
           )}
@@ -123,15 +124,16 @@ const Accordion = ({
           />
         )}
       </span>
-      <AnimatePresence>
+      <AnimatePresence mode='wait'>
         {(active || lock) && (
           <motion.div
             layout
+            layoutRoot
             id='accordion-description'
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: 'easeInOut' }}
+            transition={{ delay: -0.3 ,duration: 0.8, ease: 'easeInOut' }}
             className='overflow-hidden w-full pt-2'
           >
             <p className='p-2'>{Description}</p>
