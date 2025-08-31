@@ -90,7 +90,7 @@ const LoginForm = ({
             onChange={e => setUser({ ...user, email: e.target.value })}
           />
           {error.email && (
-            <p className='mt-1 text-red-500 text-xs text-center w-3xs'>
+            <p className='mt-1 text-red-500 text-xs text-center min-w-[220px] max-w-3xs'>
               {error.email}
             </p>
           )}
@@ -119,7 +119,7 @@ const LoginForm = ({
             />
           </div>
           {error.password && (
-            <p className='mt-1 text-red-500 text-xs text-center w-3xs'>
+            <p className='mt-1 text-red-500 text-xs text-center min-w-[220px] max-w-3xs'>
               {error.password}
             </p>
           )}
