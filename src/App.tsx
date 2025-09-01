@@ -256,7 +256,7 @@ function App () {
       <div className='container flex flex-col gap-3'>
         <Accordion
           Heading='Ganesh Belote, I am from Devibhoyare'
-          Description='Myself Ganesh Belote, I am from Devibhoyare Taluka Parner District Ahilyanagar.Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci pariatur sapiente quis iste expedita obcaecati est eaque, libero quod delectus aliquam autem repellat illum distinctio id. Iure id optio ad, porro nam eaque? Culpa cumque, rem commodi autem ab porro pariatur! Aperiam ducimus natus, ipsa suscipit sint veniam reprehenderit dolores.'
+          Description='Myself Ganesh Belote, I am from Devibhoyare Taluka Parner District Ahilyanagar.'
           Border={true}
           Color='white'
           BackgroundColor='black'

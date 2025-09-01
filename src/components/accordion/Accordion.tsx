@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import UpArrow from '/svg/up-arrow.svg'
 import Lock from '/svg/lock.svg'
@@ -59,6 +59,19 @@ const Accordion = ({
 }) => {
   const [active, setActive] = useState<boolean>(false)
   const [lock, setLock] = useState<boolean>(false)
+  const [supportsHover, setSupportsHover] = useState<boolean>(true)
+
+  useEffect(() => {
+    // Check if the device has a real hover capability
+    const mediaQuery = window.matchMedia('(hover: hover)')
+    setSupportsHover(mediaQuery.matches)
+
+    // Update state on change (e.g. resizing window or connecting external mouse)
+    const handler = (e: MediaQueryListEvent) => setSupportsHover(e.matches)
+    mediaQuery.addEventListener('change', handler)
+
+    return () => mediaQuery.removeEventListener('change', handler)
+  }, [])
 
   return (
     <motion.div
@@ -74,14 +87,16 @@ const Accordion = ({
           ? `0 1px 8px -4px ${Color}`
           : '0 1px 8px -4px rgba(0,0,0,0.25)'
       }}
-      onMouseEnter={() => setActive(true)}
-      onMouseLeave={() => setActive(false)}
+      {...(supportsHover && {
+        onMouseEnter: () => setActive(true),
+        onMouseLeave: () => setActive(false)
+      })}
       onDoubleClick={() => setLock(prev => !prev)}
+      onClick={() => setActive(prev => !prev)}
     >
       <div className='w-full relative text-lg font-semibold flex items-center justify-center gap-2'>
         <span
           className={`w-full text-center`}
-          onClick={() => setActive(prev => !prev)}
         >
           {Heading.length <= 27
             ? Heading
@@ -122,7 +137,6 @@ const Accordion = ({
             } transition-transform duration-300`}
             src={UpArrow}
             alt='arrow'
-            onClick={() => setActive(prev => !prev)}
           />
         )}
       </span>
