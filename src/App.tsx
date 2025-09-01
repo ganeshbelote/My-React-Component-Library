@@ -241,7 +241,8 @@ function App () {
       </div>
       <h2>Checkbox</h2>
       <div className='container flex flex-col gap-3'>
-        <Checkbox onToggle={(done) => console.log(done)} For='Myself Ganesh Digambar Belote I am from Parner District Ahilyanagar' />
+        <Checkbox Size='small' onToggle={(active) => console.log(active)} For='Myself Ganesh Digambar Belote I am from Parner District Ahilyanagar' />
+        <Checkbox Type='todo' onToggle={(done) => console.log(done)} For='Myself Ganesh Digambar Belote I am from Parner District Ahilyanagar' />
       </div>
       <h2>Breadcrumb</h2>
       <div id='breadcrum' className='container flex flex-col gap-3'>

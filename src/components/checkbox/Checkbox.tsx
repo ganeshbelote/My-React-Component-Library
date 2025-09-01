@@ -21,10 +21,12 @@ const SizeObject = {
 }
 
 const Checkbox = ({
+  Type = 'checkbox',
   onToggle,
   For = 'Description !',
   Size = 'medium'
 }: {
+  Type?: 'checkbox' | 'todo'
   onToggle?:onToggleType
   For: string
   Size?: sizeType
@@ -85,7 +87,8 @@ const Checkbox = ({
           )}
         </AnimatePresence>
       </div>
-      <AnimatedText Size={SizeObject[Size].text} Trigger={active} Text={For} />
+      {Type == 'checkbox' ? <span className={`${SizeObject[Size].text}`}>{For}</span> :
+      <AnimatedText Size={SizeObject[Size].text} Trigger={active} Text={For} />}
     </div>
   )
 }
