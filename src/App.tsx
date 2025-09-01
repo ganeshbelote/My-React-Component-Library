@@ -147,7 +147,7 @@ function App () {
           Content='Click me'
           Color='blue'
         />
-        <div onClick={() => console.log('clicked..')}>
+        <div onClick={() => console.log('Expandable btn clicked..')}>
           <ExpandableButton
             Color='blue'
             Border={true}

@@ -20,13 +20,13 @@ const SizeObject = {
 }
 
 const Checkbox = ({
-  For,
+  For = 'Description !',
   Size = 'medium'
 }: {
   For: string
   Size?: sizeType
 }) => {
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState<boolean>(false)
 
   return (
     <div
