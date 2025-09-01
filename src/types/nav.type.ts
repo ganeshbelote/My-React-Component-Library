@@ -1,4 +1,5 @@
 export interface MenuContentType {
+  Href?: string;
   Heading: string;
   Description: string;
 }

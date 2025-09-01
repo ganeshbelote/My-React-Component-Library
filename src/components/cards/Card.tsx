@@ -29,7 +29,7 @@ const Card = ({
 
   return (
     <div
-      className='Card shadow-[0_1px_6px_-4px_rgba(0,0,0,0.25)] shadow-white hover:scale-101 transition-transform duration-300 overflow-hidden max-h-96 min-w-[220px] max-w-3xs rounded-2xl'
+      className='Card shadow-[0_1px_6px_-4px_rgba(0,0,0,0.25)] shadow-white hover:scale-101 transition-transform duration-300 overflow-hidden max-h-96 min-w-[220px] max-w-3xs rounded-xl'
       onClick={() => setIsShrink(prev => !prev)}
       {...(supportsHover && {
         onMouseEnter: () => setIsShrink(true),

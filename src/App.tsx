@@ -10,7 +10,7 @@ import RoundedBtn from './components/buttons/RoundedBtn'
 import penSvg from '/svg/pen.svg'
 import BasicInp from './components/input/BasicInp'
 import Navbar from './components/navbars/Navbar'
-import InfoTab from './components/InfoTabs/InfoTab'
+import InfoTab from './components/infotabs/InfoTab'
 import ColoredBtn from './components/buttons/ColoredBtn'
 import NavigationMenu from './components/navbars/NavigationMenu'
 import type { MenuOptionType } from './types/nav.type'
@@ -29,7 +29,8 @@ const menuOptions: MenuOptionType[] = [
     Option: 'About',
     Content: [
       {
-        Heading: 'Fuck you 1',
+        Href : '/about/projects',
+        Heading: 'Projects',
         Description:
           'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit, expedita.'
       },

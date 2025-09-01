@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import InfoTab from '../InfoTabs/InfoTab'
+import InfoTab from '../infotabs/InfoTab'
 import { v4 as uuidv4 } from 'uuid'
 import type { MenuOptionType } from '../../types/nav.type'
 
@@ -50,6 +50,7 @@ const NavigationMenu = ({
                 {el.Content.map(item => (
                   <InfoTab
                     key={uuidv4()}
+                    Href={`${item.Href ? item.Href : '/'}`}
                     Heading={`${item.Heading}`}
                     Description={`${item.Description}`}
                   />
