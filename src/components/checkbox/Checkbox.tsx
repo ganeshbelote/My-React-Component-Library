@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import AnimatedText from '../text/AnimatedText'
+import type { onToggleType } from '../../types/menubtn.type'
 
 type sizeType = 'small' | 'medium' | 'large'
 
@@ -20,18 +21,25 @@ const SizeObject = {
 }
 
 const Checkbox = ({
+  onToggle,
   For = 'Description !',
   Size = 'medium'
 }: {
+  onToggle?:onToggleType
   For: string
   Size?: sizeType
 }) => {
   const [active, setActive] = useState<boolean>(false)
 
+  const handleClick = () => {
+    onToggle?.(!active)
+    setActive(prev => !prev)
+  }
+
   return (
     <div
       className='px-2 py-1.5 cursor-pointer w-fit flex items-center hover:bg-zinc-800 rounded-sm'
-      onClick={() => setActive(prev => !prev)}
+      onClick={handleClick}
     >
       <div
         className={`flex-shrink-0 ${SizeObject[Size].boxSize} relative rounded-md flex items-center justify-center mr-3`}

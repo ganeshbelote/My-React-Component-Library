@@ -5,7 +5,6 @@ import { useLocation } from 'react-router-dom'
 interface ChildProps {
   Content: string
   Active?: boolean
-  onActive?: () => void
   to?: string
 }
 
@@ -18,8 +17,7 @@ const AnimatedNavbar = ({ children }: { children: ReactNode }) => {
         if (React.isValidElement<ChildProps>(child)) {
           const isActive = child.props.to === location.pathname
           return React.cloneElement(child, {
-            Active: isActive,
-            onActive: () => {}
+            Active: isActive
           })
         }
         return child

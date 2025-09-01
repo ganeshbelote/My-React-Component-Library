@@ -15,6 +15,7 @@ import {
 } from 'lucide-react'
 import type { BgColorType, ColorType } from '../../types/btn.type'
 import { useNavigate } from 'react-router-dom'
+import type { onToggleType } from '../../types/menubtn.type'
 
 const NavIcons = {
   Home: <Home className='w-5 h-5' />,
@@ -59,7 +60,7 @@ type NavIconType = keyof typeof NavIcons
 
 const ExpandableButton = ({
   Active = false,
-  onActive,
+  onToggle,
   to,
   NavIcon = 'ChevronRight',
   Content = 'Content',
@@ -69,7 +70,7 @@ const ExpandableButton = ({
   Border
 }: {
   Active?: boolean
-  onActive?: () => void
+  onToggle?: onToggleType
   to?: string
   NavIcon?: NavIconType
   Content?: string
@@ -98,7 +99,7 @@ const ExpandableButton = ({
   return (
     <motion.button
       onClick={() => {
-        onActive?.()
+        onToggle?.(!expanded)
         setExpanded(!expanded)
         if (to && location.pathname !== to) {
           navigate(to)
@@ -115,17 +116,17 @@ const ExpandableButton = ({
           : '0 1px 8px -4px rgba(0,0,0,0.25)'
       }}
       type='button'
-      animate={{ width: expanded ? (determineWidth() as number) : 50 }}
+      animate={{ width: expanded || Active ? (determineWidth() as number) : 50 }}
       transition={{ type: 'spring', stiffness: 200, damping: 20 }}
     >
       <motion.span
         className='w-5 h-5 flex items-center justify-center flex-shrink-0'
-        animate={{ x: expanded ? [0, -10, 10, -6, 6, -3, 3, 0] : 0 }}
+        animate={{ x: expanded || Active ? [0, -10, 10, -6, 6, -3, 3, 0] : 0 }}
         transition={{ duration: 0.4, ease: 'easeInOut' }}
       >
         {NavIcons[NavIcon]}
       </motion.span>
-      {expanded && (
+      { (to ? Active : expanded) && (
         <motion.span
           className='whitespace-nowrap font-medium'
           initial={{ opacity: 0, x: -10 }}
