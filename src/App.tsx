@@ -95,16 +95,19 @@ const menuOptions: MenuOptionType[] = [
 ]
 
 function App () {
+  const [checkExpand,setcheckExpand] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [registerData, setRegisterData] = useState<userType>({
     username: '',
     email: '',
     password: ''
   })
-
   const [loginData, setLoginData] = useState<userType>({
     email: '',
     password: ''
   })
+
+  useEffect(()=>{ console.log(checkExpand) },[checkExpand])
 
   useEffect(() => {
     if (registerData.email) {
@@ -117,7 +120,6 @@ function App () {
     }
   }, [registerData, loginData])
 
-  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   async function register (data: userType) {
     try {
@@ -149,7 +151,8 @@ function App () {
           Color='blue'
         />
         <ExpandableButton
-          onActive={() => console.log('Expandable btn clicked..')}
+          Active={checkExpand}
+          onActive={() => setcheckExpand(!checkExpand)}
           NavIcon='Home'
           Content='Accusantium'
           Color='blue'
