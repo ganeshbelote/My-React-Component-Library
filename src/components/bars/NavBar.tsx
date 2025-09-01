@@ -1,8 +1,8 @@
 import type { onToggleType } from '../../types/menubtn.type'
 import type { MenuOptionType } from '../../types/nav.type'
 import BasicBtn from '../buttons/BasicBtn'
-import MenuBtn from './MenuBtn'
-import NavigationMenu from './NavigationMenu'
+import MenuBtn from '../navigation/MenuBtn'
+import NavigationMenu from '../navigation/NavigationMenu'
 
 const NavBar = ({ onToggle , Menu }: { Menu: MenuOptionType[], onToggle?: onToggleType }) => {
   return (
