@@ -50,7 +50,7 @@ const NavigationMenu = ({
                 {el.Content.map(item => (
                   <InfoTab
                     key={uuidv4()}
-                    Href={`${item.Href ? item.Href : '/'}`}
+                    Href={`${item.Href ? item.Href : ''}`}
                     Heading={`${item.Heading}`}
                     Description={`${item.Description}`}
                   />
