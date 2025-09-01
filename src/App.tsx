@@ -208,14 +208,7 @@ function App () {
       </div>
       <h2>Breadcrumb</h2>
       <div id='breadcrum' className='container flex flex-col gap-3'>
-        <Breadcrumb
-          Items={[
-            { label: 'Home', path: '/' },
-            { label: 'Products', path: '/products' },
-            { label: 'Electronics', path: '/products/electronics' },
-            { label: 'Laptops', path: '/products/electronics/laptops' }
-          ]}
-        />
+        <Breadcrumb />
       </div>
       <h2>Accordion</h2>
       <div className='container flex flex-col gap-3'>
