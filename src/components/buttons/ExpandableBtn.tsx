@@ -58,7 +58,7 @@ const textColors: Partial<Record<ColorType, string>> = {
 
 type NavIconType = keyof typeof NavIcons
 
-const ExpandableButton = ({
+const ExpandableBtn = ({
   Active = false,
   onToggle,
   to,
@@ -140,4 +140,4 @@ const ExpandableButton = ({
   )
 }
 
-export default ExpandableButton
+export default ExpandableBtn

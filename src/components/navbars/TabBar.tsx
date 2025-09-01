@@ -8,7 +8,7 @@ interface ChildProps {
   to?: string
 }
 
-const AnimatedNavbar = ({ children }: { children: ReactNode }) => {
+const TabBar = ({ children }: { children: ReactNode }) => {
   const location = useLocation()
 
   return (
@@ -26,4 +26,4 @@ const AnimatedNavbar = ({ children }: { children: ReactNode }) => {
   )
 }
 
-export default AnimatedNavbar
+export default TabBar

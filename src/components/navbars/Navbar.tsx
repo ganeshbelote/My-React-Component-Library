@@ -4,7 +4,7 @@ import BasicBtn from '../buttons/BasicBtn'
 import MenuBtn from './MenuBtn'
 import NavigationMenu from './NavigationMenu'
 
-const Navbar = ({ onToggle , Menu }: { Menu: MenuOptionType[], onToggle?: onToggleType }) => {
+const NavBar = ({ onToggle , Menu }: { Menu: MenuOptionType[], onToggle?: onToggleType }) => {
   return (
     <div className='w-full relative flex flex-col items-center'>
       <div className='basic-navbar rounded-b-xl h-16 w-full bg-gradient-to-br from-zinc-900 to-black px-6 flex items-center justify-between'>
@@ -19,4 +19,4 @@ const Navbar = ({ onToggle , Menu }: { Menu: MenuOptionType[], onToggle?: onTogg
   )
 }
 
-export default Navbar
+export default NavBar

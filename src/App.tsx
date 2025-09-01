@@ -9,7 +9,6 @@ import PrevBtn from './components/buttons/PrevBtn'
 import RoundedBtn from './components/buttons/RoundedBtn'
 import penSvg from '/svg/pen.svg'
 import BasicInp from './components/input/BasicInp'
-import Navbar from './components/navbars/Navbar'
 import InfoTab from './components/infotabs/InfoTab'
 import ColoredBtn from './components/buttons/ColoredBtn'
 import NavigationMenu from './components/navbars/NavigationMenu'
@@ -19,11 +18,12 @@ import Breadcrumb from './components/breadcrumb/Breadcrumb'
 import MenuBtn from './components/navbars/MenuBtn'
 import Accordion from './components/accordion/Accordion'
 import PasswordInp from './components/input/PasswordInp'
-import ExpandableButton from './components/buttons/ExpandableButton'
+import ExpandableBtn from './components/buttons/ExpandableBtn'
 import Tooltip from './components/tooltip/Tooltip'
 import Card from './components/cards/Card'
 import dummyImg from './assets/dummy.jpg'
-import AnimatedNavbar from './components/navbars/AnimatedNavbar'
+import TabBar from './components/navbars/Tabbar'
+import NavBar from './components/navbars/Navbar'
 
 const menuOptions: MenuOptionType[] = [
   {
@@ -146,7 +146,7 @@ function App () {
           Content='Click me'
           Color='blue'
         />
-        <ExpandableButton
+        <ExpandableBtn
           onToggle={(active) => console.log(active)}
           NavIcon='Home'
           Content='Accusantium'
@@ -185,49 +185,49 @@ function App () {
       </div>
       <h2>Navbars</h2>
       <div className='container flex flex-wrap gap-3'>
-        <Navbar
+        <NavBar
           Menu={menuOptions}
           onToggle={isActive => {
             console.log('Menu active from navbar:', isActive)
           }}
         />
-        <AnimatedNavbar>
-          <ExpandableButton
+        <TabBar>
+          <ExpandableBtn
             to='/'
             Color='black'
             BackgroundColor='white'
             NavIcon='Home'
             Content='Home'
           />
-          <ExpandableButton
+          <ExpandableBtn
             to='/about'
             Color='black'
             BackgroundColor='white'
             NavIcon='About'
             Content='About'
           />
-          <ExpandableButton
+          <ExpandableBtn
             to='/contact'
             Color='black'
             BackgroundColor='white'
             NavIcon='Contact'
             Content='Contact'
           />
-          <ExpandableButton
+          <ExpandableBtn
             to='/profile'
             Color='black'
             BackgroundColor='white'
             NavIcon='Profile'
             Content='Profile'
           />
-          <ExpandableButton
+          <ExpandableBtn
             to='/settings'
             Color='black'
             BackgroundColor='white'
             NavIcon='Settings'
             Content='Settings'
           />
-        </AnimatedNavbar>
+        </TabBar>
         <NavigationMenu
           Hidden={false}
           className='w-fit rounded-md bg-zinc-600'
