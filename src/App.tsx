@@ -23,13 +23,14 @@ import ExpandableButton from './components/buttons/ExpandableButton'
 import Tooltip from './components/tooltip/Tooltip'
 import Card from './components/cards/Card'
 import dummyImg from './assets/dummy.jpg'
+import AnimatedNavbar from './components/navbars/AnimatedNavbar'
 
 const menuOptions: MenuOptionType[] = [
   {
     Option: 'About',
     Content: [
       {
-        Href : '/about/projects',
+        Href: '/about/projects',
         Heading: 'Projects',
         Description:
           'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit, expedita.'
@@ -147,14 +148,15 @@ function App () {
           Content='Click me'
           Color='blue'
         />
-        <div onClick={() => console.log('Expandable btn clicked..')}>
-          <ExpandableButton
-            Color='blue'
-            Border={true}
-            BackgroundColor='black'
-            Shadow={true}
-          />
-        </div>
+        <ExpandableButton
+          onActive={() => console.log('Expandable btn clicked..')}
+          NavIcon='Home'
+          Content='Accusantium'
+          Color='blue'
+          Border={true}
+          BackgroundColor='black'
+          Shadow={true}
+        />
       </div>
       <h2>Info tabs</h2>
       <div className='btn-container flex gap-3'>
@@ -191,6 +193,43 @@ function App () {
             console.log('Menu active from navbar:', isActive)
           }}
         />
+        <AnimatedNavbar>
+          <ExpandableButton
+            to='/'
+            Color='black'
+            BackgroundColor='white'
+            NavIcon='Home'
+            Content='Home'
+          />
+          <ExpandableButton
+            to='/about'
+            Color='black'
+            BackgroundColor='white'
+            NavIcon='About'
+            Content='About'
+          />
+          <ExpandableButton
+            to='/contact'
+            Color='black'
+            BackgroundColor='white'
+            NavIcon='Contact'
+            Content='Contact'
+          />
+          <ExpandableButton
+            to='/profile'
+            Color='black'
+            BackgroundColor='white'
+            NavIcon='Profile'
+            Content='Profile'
+          />
+          <ExpandableButton
+            to='/settings'
+            Color='black'
+            BackgroundColor='white'
+            NavIcon='Settings'
+            Content='Settings'
+          />
+        </AnimatedNavbar>
         <NavigationMenu
           Hidden={false}
           className='w-fit rounded-md bg-zinc-600'

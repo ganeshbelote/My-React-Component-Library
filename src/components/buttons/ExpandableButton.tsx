@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   Home,
@@ -14,6 +14,7 @@ import {
   ChevronRight
 } from 'lucide-react'
 import type { BgColorType, ColorType } from '../../types/btn.type'
+import { useNavigate } from 'react-router-dom'
 
 const NavIcons = {
   Home: <Home className='w-5 h-5' />,
@@ -57,6 +58,9 @@ const textColors: Partial<Record<ColorType, string>> = {
 type NavIconType = keyof typeof NavIcons
 
 const ExpandableButton = ({
+  Active = false,
+  onActive,
+  to,
   NavIcon = 'ChevronRight',
   Content = 'Content',
   Color = 'white',
@@ -64,6 +68,9 @@ const ExpandableButton = ({
   Shadow,
   Border
 }: {
+  Active?: boolean
+  onActive?: () => void
+  to?: string
   NavIcon?: NavIconType
   Content?: string
   Color?: ColorType
@@ -72,21 +79,32 @@ const ExpandableButton = ({
   Border?: boolean
 }) => {
   const [expanded, setExpanded] = useState<boolean>(false)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    setExpanded(Active)
+  }, [Active])
 
   const determineWidth = () => {
     if (!Content?.length) {
       setExpanded(false)
       return 50
     }
-    const base = 50
+    const base = 70
     const perChar = 10.4
     return base + (Content?.length ?? 0) * perChar
   }
 
   return (
     <motion.button
-      onClick={() => setExpanded(!expanded)}
-      className={`cursor-pointer h-[50px] flex items-center ${
+      onClick={() => {
+        onActive?.()
+        setExpanded(!expanded)
+        if (to && location.pathname !== to) {
+          navigate(to)
+        }
+      }}
+      className={`cursor-pointer h-[50px] flex gap-2 items-center justify-center ${
         bgColors[BackgroundColor]
       } ${textColors[Color]} ${
         Border && 'border-[1.5px]'
@@ -100,10 +118,16 @@ const ExpandableButton = ({
       animate={{ width: expanded ? (determineWidth() as number) : 50 }}
       transition={{ type: 'spring', stiffness: 200, damping: 20 }}
     >
-      {NavIcons[NavIcon]}
+      <motion.span
+        className='w-5 h-5 flex items-center justify-center flex-shrink-0'
+        animate={{ x: expanded ? [0, -10, 10, -6, 6, -3, 3, 0] : 0 }}
+        transition={{ duration: 0.4, ease: 'easeInOut' }}
+      >
+        {NavIcons[NavIcon]}
+      </motion.span>
       {expanded && (
         <motion.span
-          className='ml-2 pr-2 whitespace-nowrap font-medium'
+          className='whitespace-nowrap font-medium'
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -10 }}
