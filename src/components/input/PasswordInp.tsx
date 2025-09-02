@@ -50,14 +50,14 @@ const PasswordInp = ({
   }, [Corner])
 
   return (
-    <div className='relative flex flex-col justify-center'>
+    <div className='relative min-w-[220px] max-w-3xs flex flex-col justify-center'>
       {Lable && <label htmlFor={id}>Password</label>}
       <input
         id={id}
         name={id}
         {...rest}
         className={clsx(
-          'min-w-[220px] max-w-3xs outline-0 px-4 py-2.5 pr-10 text-sm',
+          'outline-0 px-4 py-2.5 pr-10 text-sm',
           Border && 'border-[1.5px]',
           textColors[Color],
           cornerStyle,

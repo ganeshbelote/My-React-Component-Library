@@ -75,7 +75,7 @@ const Accordion = ({
 
   return (
     <motion.div
-      className={`relative ${textColors[Color]} ${
+      className={`relative overflow-hidden ${textColors[Color]} ${
         Border && 'border-[1.5px]'
       } max-w-[30rem] px-2 py-1.5 pr-8 cursor-pointer flex flex-col items-center rounded-sm ${
         active || lock

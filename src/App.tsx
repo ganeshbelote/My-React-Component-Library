@@ -26,6 +26,7 @@ import TabBar from './components/bars/TabBar'
 import NavBar from './components/bars/NavBar'
 import Select from './components/select-option/Select'
 import Option from './components/select-option/Option'
+import Toast from './components/toast/Toast'
 
 const menuOptions: MenuOptionType[] = [
   {
@@ -136,20 +137,21 @@ function App () {
     <div className='p-6 text-white flex flex-col gap-5'>
       <h2>Buttons</h2>
       <div className='btn-container flex flex-wrap gap-3'>
-        <BasicBtn Content='Click me' Shadow={true} />
+        <BasicBtn Content='Click me' Shadow={true} onClick={() => console.log('basic')}/>
         <LoadingBtn Border={true} />
         <PrevBtn onClick={() => console.log('prev')} />
         <NextBtn onClick={() => console.log('next')} />
-        <RoundedBtn Src={penSvg} Size='large' />
+        <RoundedBtn Src={penSvg} Size='large' onClick={() => console.log('rounded')}/>
         <ColoredBtn
           Animated={true}
           Shadow={true}
           Border={true}
           Content='Click me'
           Color='blue'
+          onClick={() => console.log('colored')}
         />
         <ExpandableBtn
-          onToggle={(active) => console.log(active)}
+          onToggle={(active) => console.log('animated' + active)}
           NavIcon='Home'
           Content='Accusantium'
           Color='blue'
@@ -173,8 +175,8 @@ function App () {
       </div>
       <h2>Input fields</h2>
       <div className='btn-container flex flex-wrap gap-3'>
-        <BasicInp Corner='pill' placeholder='username' />
-        <PasswordInp Corner='rounded' Placeholder={true} placeholder='jgjdsh' />
+        <BasicInp Corner='pill' placeholder='username' onChange={e => console.log(e.target.value)}/>
+        <PasswordInp Corner='rounded' Placeholder={true} placeholder='jgjdsh' onChange={e => console.log(e.target.value)}/>
       </div>
       <h2>Auth Forms</h2>
       <div className='form-container flex flex-col gap-3'>
@@ -274,7 +276,7 @@ function App () {
         />
       </div>
       <h2>Select option</h2>
-      <div className='container flex flex-col gap-3'>
+      <div className='container flex flex-wrap gap-3'>
           <Select Title='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ad reprehenderit dolor harum omnis mollitia ex magnam recusandae eligendi molestiae.' onChange={e => console.log(e.target.value)}>
             <Option value='male'>Male</Option>
             <Option value='female'>Female</Option>
@@ -288,7 +290,7 @@ function App () {
       </div>
       <h2>Toast Messages</h2>
       <div className='container min-h-screen flex flex-col gap-3'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ad reprehenderit dolor harum omnis mollitia ex magnam recusandae eligendi molestiae.
+          <Toast/>
       </div>
     </div>
   )
