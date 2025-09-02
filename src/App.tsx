@@ -24,6 +24,8 @@ import Card from './components/cards/Card'
 import dummyImg from './assets/dummy.jpg'
 import TabBar from './components/bars/TabBar'
 import NavBar from './components/bars/NavBar'
+import Select from './components/select-option/Select'
+import Option from './components/select-option/Option'
 
 const menuOptions: MenuOptionType[] = [
   {
@@ -263,13 +265,21 @@ function App () {
         <Tooltip Content='Hey Buddy !' />
       </div>
       <h2>Card</h2>
-      <div className='container min-h-screen flex flex-col gap-3'>
+      <div className='container flex flex-col gap-3'>
         <Card
           Src={dummyImg}
           Heading='Ganesh Belote'
           Description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis dolores, voluptatibus reiciendis aut ex provident exercitationem distinctio. Laboriosam architecto expedita natus fugiat molestias inventore omnis beatae ipsum, tempore quam vero reiciendis excepturi sapiente eum sint ea similique dolorem odio dolorum.'
           Date={String(Date.now())}
         />
+      </div>
+      <h2>Select option</h2>
+      <div className='container min-h-screen flex flex-col gap-3'>
+          <Select onChange={e => console.log(e.target.value)}>
+            <Option value='male'>Male</Option>
+            <Option value='female'>Female</Option>
+            <Option value='others'>Others</Option>
+          </Select>
       </div>
     </div>
   )
