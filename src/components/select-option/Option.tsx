@@ -19,7 +19,7 @@ const Option = ({ value, children, Active = false, onClick }: OptionProps) => {
     >
       <span
         className={clsx(
-          'relative z-10 transition-all duration-300 ease-in-out',
+          'z-[1] relative max-w-[360px] transition-all duration-200 ease-in-out',
           hover || Active ? 'text-black' : 'text-white'
         )}
       >
@@ -27,7 +27,7 @@ const Option = ({ value, children, Active = false, onClick }: OptionProps) => {
       </span>
       <div
         className={clsx(
-          'absolute w-full h-full rounded-md bg-white transition-all duration-300 ease-in-out',
+          'absolute w-full h-full rounded-md bg-white transition-all duration-200 ease-in-out',
           hover || Active ? 'top-0 opacity-100' : '-top-[105%] opacity-0'
         )}
       ></div>

@@ -274,12 +274,21 @@ function App () {
         />
       </div>
       <h2>Select option</h2>
-      <div className='container min-h-screen flex flex-col gap-3'>
-          <Select onChange={e => console.log(e.target.value)}>
+      <div className='container flex flex-col gap-3'>
+          <Select Title='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ad reprehenderit dolor harum omnis mollitia ex magnam recusandae eligendi molestiae.' onChange={e => console.log(e.target.value)}>
             <Option value='male'>Male</Option>
             <Option value='female'>Female</Option>
-            <Option value='others'>Others</Option>
+            <Option value='others'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ad reprehenderit dolor harum omnis mollitia ex magnam recusandae eligendi molestiae.</Option>
           </Select>
+          <Select onChange={e => console.log(e.target.value)}>
+            <Option value='open'>Open</Option>
+            <Option value='OBC'>OBC</Option>
+            <Option value='others'>SC/ST</Option>
+          </Select>
+      </div>
+      <h2>Toast Messages</h2>
+      <div className='container min-h-screen flex flex-col gap-3'>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ad reprehenderit dolor harum omnis mollitia ex magnam recusandae eligendi molestiae.
       </div>
     </div>
   )

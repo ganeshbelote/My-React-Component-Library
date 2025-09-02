@@ -52,6 +52,7 @@ const BasicInp = ({
       <input
         id={id}
         name={id}
+        type='text'
         {...rest}
         className={clsx(
           'min-w-[220px] max-w-3xs outline-0 px-4 py-2.5 text-sm',
@@ -60,7 +61,6 @@ const BasicInp = ({
           cornerStyle,
           className
         )}
-        type='text'
       />
     </div>
   )

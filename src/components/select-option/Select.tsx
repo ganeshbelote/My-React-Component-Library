@@ -1,13 +1,19 @@
 import clsx from 'clsx'
 import Option from './Option'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { SelectProps } from '../../types/selectOption.type'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import UpArrow from '/svg/up-arrow.svg'
 
-const Select = ({ children, onChange }: SelectProps) => {
+const Select = ({ Title = 'Select Option' , children, onChange }: SelectProps) => {
+  const widthRef = useRef<HTMLDivElement>(null)
+  const [width, setWidth] = useState<number>()
   const [expand, setExpand] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+
+  useEffect(() => {
+    setWidth(widthRef.current?.offsetWidth)
+  }, [])
 
   const handleSelect = (index: number, value: string) => {
     setSelectedIndex(index)
@@ -30,17 +36,18 @@ const Select = ({ children, onChange }: SelectProps) => {
     )
 
   return (
-    <div className='relative w-fit flex flex-col items-center justify-center gap-2'>
+    <div className='relative flex flex-col items-center justify-center'>
       <div
+        style={{ minWidth: width }}
         className={clsx(
-          'cursor-pointer w-full max-w-fit flex items-center justify-center gap-3 px-4 py-1.5 rounded-md bg-gradient-to-r from-zinc-900 to-zinc-950 font-medium text-center'
+          'cursor-pointer flex items-center justify-between gap-3 px-4 py-1.5 rounded-md bg-gradient-to-r from-zinc-900 to-zinc-950 font-medium hover:shadow-[0_0_4px_#ffffff] transition-all duration-300 ease-out'
         )}
         onClick={() => setExpand(prev => !prev)}
       >
-        <span>
+        <span className='max-w-[360px]'>
           {selectedIndex !== null
             ? children[selectedIndex].props.children
-            : 'Select'}
+            : Title}
         </span>
         <motion.img
           initial={{ opacity: 0 }}
@@ -54,31 +61,28 @@ const Select = ({ children, onChange }: SelectProps) => {
         />
       </div>
 
-      <AnimatePresence>
-        {expand && (
-          <motion.div
-            key='dropdown'
-            initial={{ opacity: 0, y: 70 }}
-            animate={{ opacity: 1, y: 90 }}
-            exit={{ opacity: 0, y: 70 }}
-            transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className={clsx(
-              'absolute flex flex-col items-center gap-1 w-fit p-2.5 rounded-xl bg-gradient-to-r from-zinc-900 to-zinc-950'
-            )}
-          >
-            {children.map((el, index) => (
-              <Option
-                key={index}
-                value={el.props.value}
-                Active={selectedIndex === index}
-                onClick={() => handleSelect(index, el.props.value)}
-              >
-                {el.props.children}
-              </Option>
-            ))}
-          </motion.div>
+      <motion.div
+        ref={widthRef}
+        key='dropdown'
+        initial={{ opacity: 0, top: '90%' }}
+        animate={{ opacity: !expand ? 0 : 1, top: !expand ? '90%' : '105%' }}
+        transition={{ duration: 0.25, ease: 'easeInOut' }}
+        className={clsx(
+          'absolute z-[1] flex flex-col items-center gap-1 w-fit p-2.5 rounded-xl bg-gradient-to-r from-zinc-900 to-zinc-950',
+          !expand && 'pointer-events-none cursor-not-allowed'
         )}
-      </AnimatePresence>
+      >
+        {children.map((el, index) => (
+          <Option
+            key={index}
+            value={el.props.value}
+            Active={selectedIndex === index}
+            onClick={() => handleSelect(index, el.props.value)}
+          >
+            {el.props.children}
+          </Option>
+        ))}
+      </motion.div>
     </div>
   )
 }
