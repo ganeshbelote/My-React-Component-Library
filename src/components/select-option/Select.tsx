@@ -3,6 +3,7 @@ import Option from './Option'
 import { useState } from 'react'
 import type { SelectProps } from '../../types/selectOption.type'
 import { motion, AnimatePresence } from 'framer-motion'
+import UpArrow from '/svg/up-arrow.svg'
 
 const Select = ({ children, onChange }: SelectProps) => {
   const [expand, setExpand] = useState(false)
@@ -21,17 +22,36 @@ const Select = ({ children, onChange }: SelectProps) => {
     }
   }
 
+  if (!children)
+    return (
+      <h2 className='text-2xl text-red-500 font-semibold'>
+        Give Option Component !
+      </h2>
+    )
+
   return (
     <div className='relative w-fit flex flex-col items-center justify-center gap-2'>
       <div
         className={clsx(
-          'cursor-pointer w-full max-w-fit flex flex-col items-center gap-1 px-6 py-1.5 rounded-md bg-gradient-to-r from-zinc-900 to-zinc-950 font-medium text-center text-nowrap'
+          'cursor-pointer w-full max-w-fit flex items-center justify-center gap-3 px-4 py-1.5 rounded-md bg-gradient-to-r from-zinc-900 to-zinc-950 font-medium text-center'
         )}
         onClick={() => setExpand(prev => !prev)}
       >
-        {selectedIndex !== null
-          ? children[selectedIndex].props.children
-          : 'Select'}
+        <span>
+          {selectedIndex !== null
+            ? children[selectedIndex].props.children
+            : 'Select'}
+        </span>
+        <motion.img
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2, ease: 'easeInOut' }}
+          className={`h-1.5 ${
+            expand && 'rotate-180'
+          } transition-transform duration-300`}
+          src={UpArrow}
+          alt='arrow'
+        />
       </div>
 
       <AnimatePresence>

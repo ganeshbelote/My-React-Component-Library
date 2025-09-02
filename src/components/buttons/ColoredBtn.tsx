@@ -76,7 +76,7 @@ const ColoredBtn = ({
       <button
         {...rest}
         className={clsx(
-          'text-nowrap relative overflow-hidden select-none px-4 py-2.5 transition-all duration-600 ease-in-out cursor-pointer active:scale-95 font-medium',
+          'text-nowrap relative overflow-hidden px-4 py-2.5 transition-all duration-600 ease-in-out cursor-pointer active:scale-95 font-medium',
           cornerStyle,
           !Animated && bgColors[BackgroundColor],
           hover ? bgColors[Color] : bgColors[BackgroundColor],

@@ -67,7 +67,7 @@ const PasswordInp = ({
         type={showPassword ? 'text' : 'password'}
       />
       <img
-        className='show-pass select-none h-5 w-5 cursor-pointer absolute right-4'
+        className='show-pass h-5 w-5 cursor-pointer absolute right-4'
         src={showPassword ? '/svg/eye-close.svg' : '/svg/eye-open.svg'}
         alt={showPassword ? 'Hide password' : 'Show password'}
         draggable={false}

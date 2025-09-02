@@ -34,7 +34,7 @@ const LoadingBtn = ({
       <button
         {...rest}
         className={clsx(
-          'flex items-center justify-center gap-2 min-h-8.5 select-none px-5 py-1.5 pt-2 font-medium opacity-75 cursor-not-allowed',
+          'flex items-center justify-center gap-2 min-h-8.5 px-5 py-1.5 pt-2 font-medium opacity-75 cursor-not-allowed',
           'bg-gradient-to-r from-zinc-900 to-zinc-950',
           cornerStyle,
           Shadow && 'shadow-[0_1px_8px_-4px_rgba(0,0,0,0.25)] shadow-white',

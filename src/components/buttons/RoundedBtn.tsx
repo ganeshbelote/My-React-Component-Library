@@ -38,7 +38,7 @@ const RoundedBtn = ({
         {...rest}
         className={clsx(
           btnSize,
-          'rounded-full select-none bg-gradient-to-r from-zinc-900 to-zinc-950 cursor-pointer active:scale-95 text-2xl flex items-center justify-center',
+          'rounded-full bg-gradient-to-r from-zinc-900 to-zinc-950 cursor-pointer active:scale-95 text-2xl flex items-center justify-center',
           Border || 'border-[1.2px] border-white',
           Shadow && 'shadow-[0_1px_8px_-4px_rgba(0,0,0,0.25)] shadow-white',
           hover && 'scale-102',
@@ -49,7 +49,7 @@ const RoundedBtn = ({
         onMouseLeave={() => setHover(false)}
       >
         <img
-          className='h-1/2 select-none'
+          className='h-1/2'
           src={Src}
           alt='Image Src provided by user'
           draggable={false}

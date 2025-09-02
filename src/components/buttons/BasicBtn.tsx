@@ -39,7 +39,7 @@ const BasicBtn = ({
       <button
         {...rest}
         className={clsx(
-          'text-nowrap select-none px-3 py-1.5 transition-all',
+          'text-nowrap px-3 py-1.5 transition-all',
           cornerStyle,
           Shadow && 'shadow-[0_1px_8px_-4px_rgba(0,0,0,0.25)] shadow-white',
           Border && 'border-[1.2px]',
