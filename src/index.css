@@ -127,3 +127,20 @@ input:hover {
       opacity 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 }
+
+/* star blinking animation */
+@keyframes blink {
+  0% {
+    color: #99a1af;
+  }
+  50% {
+    color: oklch(85.2% 0.199 91.936);
+  }
+  100% {
+    color: #99a1af;
+  }
+}
+
+.blink {
+  animation: blink 2s linear infinite;
+}
