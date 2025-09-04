@@ -44,7 +44,7 @@ const Select = ({ Title = 'Select Option' , children, onChange }: SelectProps) =
         )}
         onClick={() => setExpand(prev => !prev)}
       >
-        <span className='max-w-[360px]'>
+        <span className='max-w-[360px] line-clamp-1'>
           {selectedIndex !== null
             ? children[selectedIndex].props.children
             : Title}

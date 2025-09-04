@@ -26,7 +26,7 @@ import TabBar from './components/bars/TabBar'
 import NavBar from './components/bars/NavBar'
 import Select from './components/select-option/Select'
 import Option from './components/select-option/Option'
-import Toast from './components/toast/Toast'
+import {toast, Toast} from './components/toast/Toast'
 
 const menuOptions: MenuOptionType[] = [
   {
@@ -134,7 +134,7 @@ function App () {
   }
 
   return (
-    <div className='p-6 text-white flex flex-col gap-5'>
+    <div className='p-6 text-white flex flex-col gap-5 overflow-hidden'>
       <h2>Buttons</h2>
       <div className='btn-container flex flex-wrap gap-3'>
         <BasicBtn Content='Click me' Shadow={true} onClick={() => console.log('basic')}/>
@@ -289,8 +289,13 @@ function App () {
           </Select>
       </div>
       <h2>Toast Messages</h2>
-      <div className='container min-h-screen flex flex-col gap-3'>
+      <div className='container min-h-screen flex flex-wrap gap-3'>
           <Toast/>
+          <BasicBtn Content='Success' onClick={() => toast.success("Chaltay ...")}/>
+          <BasicBtn Content='Info' onClick={() => toast.info("Chaltay ...")}/>
+          <BasicBtn Content='Warning' onClick={() => toast.warning("Chaltay ...")}/>
+          <BasicBtn Content='Error' onClick={() => toast.error("Chaltay ...")}/>
+
       </div>
     </div>
   )
