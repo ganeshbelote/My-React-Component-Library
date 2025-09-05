@@ -70,13 +70,13 @@ select:-moz-autofill {
 }
 
 /* All input focus animation */
-input:focus {
+input:focus:not(.skip-focus) {
   box-shadow: 0px 0px 4px #ffffff;
   transition: all 0.3s ease-out;
 }
 
 /* All input hover animation */
-input:hover {
+input:hover:not(.skip-focus) {
   box-shadow: 0px 0px 4px #ffffff;
   transition: all 0.3s ease-out;
 }

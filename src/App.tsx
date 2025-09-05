@@ -180,7 +180,7 @@ function App () {
       <div className='btn-container flex flex-wrap gap-3'>
         <BasicInp Corner='pill' placeholder='username' onChange={e => console.log(e.target.value)}/>
         <PasswordInp Corner='rounded' Placeholder={true} placeholder='jgjdsh' onChange={e => console.log(e.target.value)}/>
-        <SearchBar/>
+        <SearchBar Corner='pill' onChange={e => console.log(e.target.value)}/>
       </div>
       <h2>Auth Forms</h2>
       <div className='form-container flex flex-col gap-3'>
@@ -299,7 +299,6 @@ function App () {
           <BasicBtn Content='Info' onClick={() => toast.info("Chaltay ...")}/>
           <BasicBtn Content='Warning' onClick={() => toast.warning("Chaltay ...")}/>
           <BasicBtn Content='Error' onClick={() => toast.error("Chaltay ...")}/>
-
       </div>
     </div>
   )

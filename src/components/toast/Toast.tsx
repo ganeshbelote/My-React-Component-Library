@@ -47,7 +47,7 @@ export const Toast = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-              className='overflow-hidden relative lg:w-[420px] md:w-[380px] w-[340px] flex gap-5 items-start justify-between px-4 py-2.5 rounded-xl shadow-lg bg-neutral-900 text-white'
+              className='overflow-hidden relative w-screen max-w-[340px] flex gap-5 items-start justify-between px-4 py-2.5 rounded-xl shadow-lg bg-neutral-900 text-white'
             >
               {/* Left Section */}
               <div className='flex items-start gap-3'>

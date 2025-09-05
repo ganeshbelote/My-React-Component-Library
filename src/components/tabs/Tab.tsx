@@ -53,14 +53,14 @@ export default function Tab ({ Tabs , onClick }: { Tabs: string[], onClick?: (e:
   return (
     <div
       ref={containerRef}
-      className='h-fit w-fit p-1 rounded-xl bg-zinc-800 flex gap-1 relative'
+      className='overflow-hidden h-fit w-fit p-1 rounded-xl bg-zinc-800 flex flex-wrap gap-1 relative'
       onMouseLeave={() => {
         setHoverTab(null)
         measureAndSet(activeTab)
       }}
     >
       {Tabs.map((tab, index) => (
-        <div key={tab} className='flex flex-wrap items-center justify-center'>
+        <div key={tab} className='flex items-center justify-center'>
           <button
             ref={el => {
               buttonRefs.current[index] = el
@@ -79,7 +79,7 @@ export default function Tab ({ Tabs , onClick }: { Tabs: string[], onClick?: (e:
           >
             {tab}
           </button>
-          <span className='pointer-events-none absolute z-[5] font-medium text-nowrap'>
+          <span className='pointer-events-none absolute z-[1] font-medium text-nowrap'>
             {tab}
           </span>
         </div>
