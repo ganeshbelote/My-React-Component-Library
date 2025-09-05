@@ -289,8 +289,8 @@ function App () {
           </Select>
       </div>
       <h2>Toast Messages</h2>
-      <div className='container min-h-screen flex flex-wrap gap-3'>
-          <Toast/>
+      <div className='container flex flex-wrap gap-3'>
+          <Toast duration={500}/>
           <BasicBtn Content='Success' onClick={() => toast.success("Chaltay ...")}/>
           <BasicBtn Content='Info' onClick={() => toast.info("Chaltay ...")}/>
           <BasicBtn Content='Warning' onClick={() => toast.warning("Chaltay ...")}/>
