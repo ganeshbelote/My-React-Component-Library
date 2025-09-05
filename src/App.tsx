@@ -27,6 +27,8 @@ import NavBar from './components/bars/NavBar'
 import Select from './components/select-option/Select'
 import Option from './components/select-option/Option'
 import {toast, Toast} from './components/toast/Toast'
+import Tab from './components/tabs/Tab'
+import SearchBar from './components/input/SearchBar'
 
 const menuOptions: MenuOptionType[] = [
   {
@@ -160,8 +162,8 @@ function App () {
           Shadow={true}
         />
       </div>
-      <h2>Info tabs</h2>
-      <div className='btn-container flex gap-3'>
+      <h2>Tabs</h2>
+      <div className='btn-container flex flex-wrap gap-3'>
         <InfoTab
           Href='/about'
           Border={true}
@@ -172,11 +174,13 @@ function App () {
         soluta maxime blanditiis nemo molestiae veritatis illum ducimus minima
         eveniet nihil est cupiditate.'
         />
+        <Tab Tabs = {["Ganesh", "My self ganesh belote", "q",'123']} onClick={(e) => console.log(e.currentTarget.value,e.currentTarget.textContent)}/>
       </div>
       <h2>Input fields</h2>
       <div className='btn-container flex flex-wrap gap-3'>
         <BasicInp Corner='pill' placeholder='username' onChange={e => console.log(e.target.value)}/>
         <PasswordInp Corner='rounded' Placeholder={true} placeholder='jgjdsh' onChange={e => console.log(e.target.value)}/>
+        <SearchBar/>
       </div>
       <h2>Auth Forms</h2>
       <div className='form-container flex flex-col gap-3'>
