@@ -29,6 +29,7 @@ import Option from './components/select-option/Option'
 import {toast, Toast} from './components/toast/Toast'
 import Tab from './components/tabs/Tab'
 import SearchBar from './components/input/SearchBar'
+import Slider from './components/slider/Slider'
 
 const menuOptions: MenuOptionType[] = [
   {
@@ -161,6 +162,7 @@ function App () {
           BackgroundColor='black'
           Shadow={true}
         />
+        <Slider onToggle={(value) => console.log(value)}/>
       </div>
       <h2>Tabs</h2>
       <div className='btn-container flex flex-wrap gap-3'>

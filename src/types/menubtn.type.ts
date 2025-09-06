@@ -14,4 +14,4 @@ export interface MenuBtnProps
   onToggle?: onToggleType; 
 }
 
-export type onToggleType = (active: boolean) => void | undefined
+export type onToggleType = (active: boolean | number) => void | undefined
