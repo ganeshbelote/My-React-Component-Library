@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import type { ColorType, cornerType } from '../../types/btn.type'
 import { motion } from 'framer-motion'
@@ -19,6 +19,7 @@ const textColors: Record<ColorType, string> = {
 const SearchBar = ({
   id = 'search',
   Border = true,
+  Shadow = true,
   Color = 'white',
   Corner,
   className,
@@ -26,10 +27,12 @@ const SearchBar = ({
 }: {
   id?: string
   Border?: boolean
+  Shadow?: boolean
   Color?: ColorType
   Corner?: cornerType
   className?: string
 } & React.InputHTMLAttributes<HTMLInputElement>) => {
+  const inputRef = useRef<HTMLInputElement>(null)
   const [cornerStyle, setCorner] = useState<string>('rounded-md')
   const [isOpen, setOpen] = useState<boolean>(false)
 
@@ -46,14 +49,21 @@ const SearchBar = ({
     }
   }, [Corner])
 
+  const clearInput = () => {
+    if (inputRef.current) {
+      inputRef.current.value = ''
+      inputRef.current.dispatchEvent(new Event('input', { bubbles: true }))
+    }
+  }
+
   return (
     <div
       className={clsx(
-        'p-0.5 flex items-center justify-between hover:shadow-[0_0_4px_#ffffff] focus:shadow-[0_0_4px_#ffffff] transition-all',
+        'overflow-hidden p-0.5 flex items-center justify-between transition-all',
+        Shadow && 'hover:shadow-[0_0_4px_#ffffff] focus:shadow-[0_0_4px_#ffffff]',
         Border && 'border-[1.5px]',
         cornerStyle
       )}
-      onMouseEnter={() => setOpen(true)}
     >
       <motion.div
         initial={{ width: 0, opacity: 0 }}
@@ -64,19 +74,28 @@ const SearchBar = ({
         transition={{ duration: 0.3, ease: 'easeInOut' }}
       >
         {isOpen && (
-          <input
-            id={id}
-            name={id}
-            placeholder='Search...'
-            {...rest}
-            type='text'
-            className={clsx(
-              'skip-focus outline-0 px-4 py-2.5 text-sm',
-              textColors[Color],
-              cornerStyle,
-              className
-            )}
-          />
+          <div className='relative flex items-center'>
+            <input
+              ref={inputRef}
+              id={id}
+              name={id}
+              placeholder='Search...'
+              {...rest}
+              type='text'
+              className={clsx(
+                'skip-focus outline-0 px-4 py-2.5 text-sm',
+                textColors[Color],
+                cornerStyle,
+                className
+              )}
+            />
+            <button
+              className='absolute right-0.5 border-[1px] px-1.5 h-fit rounded-full text-sm font-medium text-red-500'
+              onClick={clearInput}
+            >
+              x
+            </button>
+          </div>
         )}
       </motion.div>
       <button

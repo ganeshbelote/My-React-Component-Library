@@ -178,7 +178,7 @@ function App () {
       </div>
       <h2>Input fields</h2>
       <div className='btn-container flex flex-wrap gap-3'>
-        <BasicInp Corner='pill' placeholder='username' onChange={e => console.log(e.target.value)}/>
+        <BasicInp Shadow={false} Corner='pill' placeholder='username' onChange={e => console.log(e.target.value)}/>
         <PasswordInp Corner='rounded' Placeholder={true} placeholder='jgjdsh' onChange={e => console.log(e.target.value)}/>
         <SearchBar Corner='pill' onChange={e => console.log(e.target.value)}/>
       </div>

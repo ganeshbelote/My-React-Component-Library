@@ -18,6 +18,7 @@ const textColors: Record<ColorType, string> = {
 const BasicInp = ({
   id = 'input',
   Border = true,
+  Shadow = true,
   Color = 'white',
   Corner,
   Lable,
@@ -26,6 +27,7 @@ const BasicInp = ({
 }: {
   id?: string
   Border?: boolean
+  Shadow?: boolean
   Color?: ColorType
   Corner?: cornerType
   Lable?: string
@@ -57,6 +59,7 @@ const BasicInp = ({
         className={clsx(
           'min-w-[220px] max-w-3xs outline-0 px-4 py-2.5 text-sm',
           Border && 'border-[1.5px]',
+          !Shadow && 'skip-focus',
           textColors[Color],
           cornerStyle,
           className

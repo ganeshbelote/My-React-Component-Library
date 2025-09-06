@@ -18,6 +18,7 @@ const textColors: Record<ColorType, string> = {
 const PasswordInp = ({
   id = 'password-field',
   Border = true,
+  Shadow = true,
   Color = 'white',
   Corner,
   Lable,
@@ -27,6 +28,7 @@ const PasswordInp = ({
 }: {
   id?: string
   Border?: boolean
+  Shadow ?: boolean
   Color?: ColorType
   Corner?: cornerType
   Lable?: boolean
@@ -59,6 +61,7 @@ const PasswordInp = ({
         className={clsx(
           'outline-0 px-4 py-2.5 pr-10 text-sm',
           Border && 'border-[1.5px]',
+          !Shadow && 'skip-focus',
           textColors[Color],
           cornerStyle,
           className
