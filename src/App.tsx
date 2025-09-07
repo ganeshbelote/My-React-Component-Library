@@ -26,10 +26,11 @@ import TabBar from './components/bars/TabBar'
 import NavBar from './components/bars/NavBar'
 import Select from './components/select-option/Select'
 import Option from './components/select-option/Option'
-import {toast, Toast} from './components/toast/Toast'
+import { toast, Toast } from './components/toast/Toast'
 import Tab from './components/tabs/Tab'
 import SearchBar from './components/input/SearchBar'
 import Slider from './components/slider/Slider'
+import Loader from './components/loader/Loader'
 
 const menuOptions: MenuOptionType[] = [
   {
@@ -140,11 +141,19 @@ function App () {
     <div className='p-6 text-white flex flex-col gap-5 overflow-hidden'>
       <h2>Buttons</h2>
       <div className='btn-container flex flex-wrap gap-3'>
-        <BasicBtn Content='Click me' Shadow={true} onClick={() => console.log('basic')}/>
+        <BasicBtn
+          Content='Click me'
+          Shadow={true}
+          onClick={() => console.log('basic')}
+        />
         <LoadingBtn Border={true} />
         <PrevBtn onClick={() => console.log('prev')} />
         <NextBtn onClick={() => console.log('next')} />
-        <RoundedBtn Src={penSvg} Size='large' onClick={() => console.log('rounded')}/>
+        <RoundedBtn
+          Src={penSvg}
+          Size='large'
+          onClick={() => console.log('rounded')}
+        />
         <ColoredBtn
           Animated={true}
           Shadow={true}
@@ -154,7 +163,7 @@ function App () {
           onClick={() => console.log('colored')}
         />
         <ExpandableBtn
-          onToggle={(active) => console.log('animated' + active)}
+          onToggle={active => console.log('animated' + active)}
           NavIcon='Home'
           Content='Accusantium'
           Color='blue'
@@ -162,7 +171,7 @@ function App () {
           BackgroundColor='black'
           Shadow={true}
         />
-        <Slider onToggle={(value) => console.log(value)}/>
+        <Slider Color='#2877F0' onToggle={value => console.log(value)} />
       </div>
       <h2>Tabs</h2>
       <div className='btn-container flex flex-wrap gap-3'>
@@ -176,13 +185,28 @@ function App () {
         soluta maxime blanditiis nemo molestiae veritatis illum ducimus minima
         eveniet nihil est cupiditate.'
         />
-        <Tab Tabs = {["Ganesh", "My self ganesh belote", "q",'123']} onClick={(e) => console.log(e.currentTarget.value,e.currentTarget.textContent)}/>
+        <Tab
+          Tabs={['Ganesh', 'My self ganesh belote', 'q', '123']}
+          onClick={e =>
+            console.log(e.currentTarget.value, e.currentTarget.textContent)
+          }
+        />
       </div>
       <h2>Input fields</h2>
       <div className='btn-container flex flex-wrap gap-3'>
-        <BasicInp Shadow={false} Corner='pill' placeholder='username' onChange={e => console.log(e.target.value)}/>
-        <PasswordInp Corner='rounded' Placeholder={true} placeholder='jgjdsh' onChange={e => console.log(e.target.value)}/>
-        <SearchBar Corner='pill' onChange={e => console.log(e.target.value)}/>
+        <BasicInp
+          Shadow={false}
+          Corner='pill'
+          placeholder='username'
+          onChange={e => console.log(e.target.value)}
+        />
+        <PasswordInp
+          Corner='rounded'
+          Placeholder={true}
+          placeholder='jgjdsh'
+          onChange={e => console.log(e.target.value)}
+        />
+        <SearchBar Corner='pill' onChange={e => console.log(e.target.value)} />
       </div>
       <h2>Auth Forms</h2>
       <div className='form-container flex flex-col gap-3'>
@@ -251,8 +275,16 @@ function App () {
       </div>
       <h2>Checkbox</h2>
       <div className='container flex flex-col gap-3'>
-        <Checkbox Size='small' onToggle={(active) => console.log(active)} For='Myself Ganesh Digambar Belote I am from Parner District Ahilyanagar' />
-        <Checkbox Type='todo' onToggle={(done) => console.log(done)} For='Myself Ganesh Digambar Belote I am from Parner District Ahilyanagar' />
+        <Checkbox
+          Size='small'
+          onToggle={active => console.log(active)}
+          For='Myself Ganesh Digambar Belote I am from Parner District Ahilyanagar'
+        />
+        <Checkbox
+          Type='todo'
+          onToggle={done => console.log(done)}
+          For='Myself Ganesh Digambar Belote I am from Parner District Ahilyanagar'
+        />
       </div>
       <h2>Breadcrumb</h2>
       <div id='breadcrum' className='container flex flex-col gap-3'>
@@ -283,24 +315,44 @@ function App () {
       </div>
       <h2>Select option</h2>
       <div className='container flex flex-wrap gap-3'>
-          <Select Title='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ad reprehenderit dolor harum omnis mollitia ex magnam recusandae eligendi molestiae.' onChange={e => console.log(e.target.value)}>
-            <Option value='male'>Male</Option>
-            <Option value='female'>Female</Option>
-            <Option value='others'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ad reprehenderit dolor harum omnis mollitia ex magnam recusandae eligendi molestiae.</Option>
-          </Select>
-          <Select onChange={e => console.log(e.target.value)}>
-            <Option value='open'>Open</Option>
-            <Option value='OBC'>OBC</Option>
-            <Option value='others'>SC/ST</Option>
-          </Select>
+        <Select
+          Title='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ad reprehenderit dolor harum omnis mollitia ex magnam recusandae eligendi molestiae.'
+          onChange={e => console.log(e.target.value)}
+        >
+          <Option value='male'>Male</Option>
+          <Option value='female'>Female</Option>
+          <Option value='others'>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
+            ad reprehenderit dolor harum omnis mollitia ex magnam recusandae
+            eligendi molestiae.
+          </Option>
+        </Select>
+        <Select onChange={e => console.log(e.target.value)}>
+          <Option value='open'>Open</Option>
+          <Option value='OBC'>OBC</Option>
+          <Option value='others'>SC/ST</Option>
+        </Select>
       </div>
       <h2>Toast Messages</h2>
       <div className='container flex flex-wrap gap-3'>
-          <Toast duration={500}/>
-          <BasicBtn Content='Success' onClick={() => toast.success("Chaltay ...")}/>
-          <BasicBtn Content='Info' onClick={() => toast.info("Chaltay ...")}/>
-          <BasicBtn Content='Warning' onClick={() => toast.warning("Chaltay ...")}/>
-          <BasicBtn Content='Error' onClick={() => toast.error("Chaltay ...")}/>
+        <Toast duration={500} />
+        <BasicBtn
+          Content='Success'
+          onClick={() => toast.success('Chaltay ...')}
+        />
+        <BasicBtn Content='Info' onClick={() => toast.info('Chaltay ...')} />
+        <BasicBtn
+          Content='Warning'
+          onClick={() => toast.warning('Chaltay ...')}
+        />
+        <BasicBtn Content='Error' onClick={() => toast.error('Chaltay ...')} />
+      </div>
+      <h2>Loader</h2>
+      <div className='container flex flex-wrap gap-3'>
+        <Loader.Progressbar progress={100} />
+        <Loader.IndeterminateBar />
+        <Loader.VideoLoader size='sm' />
+        <Loader.BarLoader />
       </div>
     </div>
   )
