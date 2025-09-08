@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import UpArrow from '/svg/up-arrow.svg'
-import Lock from '/svg/lock.svg'
 import type { BgColorType, ColorType } from '../../types/btn.type'
 
 const bgColors: Record<BgColorType, string> = {
@@ -95,9 +93,7 @@ const Accordion = ({
       onClick={() => setActive(prev => !prev)}
     >
       <div className='w-full relative text-lg font-semibold flex items-center justify-center gap-2'>
-        <span
-          className={`w-full text-center`}
-        >
+        <span className={`w-full text-center`}>
           {Heading.length <= 27
             ? Heading
             : Heading.slice(0, 27).padEnd(30, '.')}
@@ -118,26 +114,70 @@ const Accordion = ({
         className={`absolute ${lock ? 'top-3 right-4.5' : 'top-4 right-5'}`}
       >
         {lock ? (
-          <motion.img
+          <motion.div
             initial={{ x: 0 }}
             animate={{ x: [0, -10, 10, -6, 6, -3, 3, 0] }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
-            className={`h-4`}
-            src={Lock}
-            alt='arrow'
+            className='h-4 cursor-pointer'
             onClick={() => setLock(prev => !prev)}
-          />
+          >
+            {/* Lock SVG */}
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 640 640'
+              className='w-full h-full'
+            >
+              <path
+                fill='white'
+                d='M256 160L256 224L384 224L384 160C384 124.7 355.3 96 320 96C284.7 96 256 124.7 256 160zM192 224L192 160C192 89.3 249.3 32 320 32C390.7 32 448 89.3 448 160L448 224C483.3 224 512 252.7 512 288L512 512C512 547.3 483.3 576 448 576L192 576C156.7 576 128 547.3 128 512L128 288C128 252.7 156.7 224 192 224z'
+              />
+            </svg>
+          </motion.div>
         ) : (
-          <motion.img
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className={`h-1.5 ${
+            className={`h-1.5 transition-transform duration-300 ${
               (active || lock) && 'rotate-180'
-            } transition-transform duration-300`}
-            src={UpArrow}
-            alt='arrow'
-          />
+            }`}
+          >
+            {/* UpArrow SVG */}
+            <svg
+              width='313'
+              height='193'
+              viewBox='0 0 313 193'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+              className='w-full h-full'
+            >
+              <line
+                x1='18.176'
+                y1='19.8206'
+                x2='163.179'
+                y2='164.824'
+                stroke='white'
+                strokeWidth='50'
+              />
+              <line
+                x1='294.681'
+                y1='17.6777'
+                x2='149.678'
+                y2='162.681'
+                stroke='white'
+                strokeWidth='50'
+              />
+              <rect
+                x='141.707'
+                y='178.142'
+                width='19'
+                height='19'
+                transform='rotate(-45 141.707 178.142)'
+                fill='white'
+                stroke='white'
+              />
+            </svg>
+          </motion.div>
         )}
       </span>
       <AnimatePresence mode='wait'>

@@ -28,7 +28,7 @@ const PasswordInp = ({
 }: {
   id?: string
   Border?: boolean
-  Shadow ?: boolean
+  Shadow?: boolean
   Color?: ColorType
   Corner?: cornerType
   Lable?: boolean
@@ -66,16 +66,48 @@ const PasswordInp = ({
           cornerStyle,
           className
         )}
-        placeholder= {Placeholder ? 'password' : ''}
+        placeholder={Placeholder ? 'password' : ''}
         type={showPassword ? 'text' : 'password'}
       />
-      <img
+      <div
         className='show-pass h-5 w-5 cursor-pointer absolute right-4'
-        src={showPassword ? '/svg/eye-close.svg' : '/svg/eye-open.svg'}
-        alt={showPassword ? 'Hide password' : 'Show password'}
-        draggable={false}
         onClick={() => setShowPassword(!showPassword)}
-      />
+      >
+        {showPassword ? (
+          // 👁️ Closed Eye SVG
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 576 512'
+            fill='none'
+            stroke='white'
+            strokeWidth='25'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            className='w-full h-full'
+            aria-label='Hide password'
+          >
+            <path d='M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256c-13.6-30-40.2-72.5-78.6-108.3C406.8 109.6 353.2 80 288 80z' />
+            <line x1='48' y1='48' x2='592' y2='464' />
+            <circle cx='288' cy='256' r='64' />
+          </svg>
+        ) : (
+          // 👁️ Open Eye SVG
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 576 512'
+            fill='none'
+            stroke='white'
+            strokeWidth='25'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            className='w-full h-full'
+            aria-label='Show password'
+          >
+            <path d='M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256c-13.6-30-40.2-72.5-78.6-108.3C406.8 109.6 353.2 80 288 80z' />
+            <circle cx='288' cy='256' r='64' />
+          </svg>
+        )}
+      </div>
     </div>
   )
 }

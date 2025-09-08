@@ -3,9 +3,12 @@ import Option from './Option'
 import { useEffect, useRef, useState } from 'react'
 import type { SelectProps } from '../../types/selectOption.type'
 import { motion } from 'framer-motion'
-import UpArrow from '/svg/up-arrow.svg'
 
-const Select = ({ Title = 'Select Option' , children, onChange }: SelectProps) => {
+const Select = ({
+  Title = 'Select Option',
+  children,
+  onChange
+}: SelectProps) => {
   const widthRef = useRef<HTMLDivElement>(null)
   const [width, setWidth] = useState<number>()
   const [expand, setExpand] = useState(false)
@@ -49,16 +52,49 @@ const Select = ({ Title = 'Select Option' , children, onChange }: SelectProps) =
             ? children[selectedIndex].props.children
             : Title}
         </span>
-        <motion.img
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.2, ease: 'easeInOut' }}
           className={`h-1.5 ${
             expand && 'rotate-180'
           } transition-transform duration-300`}
-          src={UpArrow}
-          alt='arrow'
-        />
+        >
+          <svg
+            width='313'
+            height='193'
+            viewBox='0 0 313 193'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+            className='w-full h-full'
+          >
+            <line
+              x1='18.176'
+              y1='19.8206'
+              x2='163.179'
+              y2='164.824'
+              stroke='white'
+              strokeWidth='50'
+            />
+            <line
+              x1='294.681'
+              y1='17.6777'
+              x2='149.678'
+              y2='162.681'
+              stroke='white'
+              strokeWidth='50'
+            />
+            <rect
+              x='141.707'
+              y='178.142'
+              width='19'
+              height='19'
+              transform='rotate(-45 141.707 178.142)'
+              fill='white'
+              stroke='white'
+            />
+          </svg>
+        </motion.div>
       </div>
 
       <motion.div
